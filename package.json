@@ -15,11 +15,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
+    "predeploy": "npm run set-legacy-env && npm run build",
     "deploy": "gh-pages -d build",
     "start:legacy": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "set-legacy-env": "cross-env NODE_OPTIONS=--openssl-legacy-provider"
   },
   "eslintConfig": {
     "extends": [
