@@ -1,7 +1,7 @@
 /* Import the Happy Monkey font */
 @font-face {
   font-family: 'Happy Monkey';
-  src: url('../public/happy-monkey/HappyMonkey-Regular.ttf') format('truetype');
+  src: url('/src/happy-monkey/HappyMonkey-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

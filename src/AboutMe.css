@@ -31,7 +31,7 @@
 }
 
 .aboutme-card-front {
-  background-image: url('../public/office.webp'); /* Correct path to the image */
+  background-image: url('/src/assets/office.webp'); /* Correct path to the image */
   background-position: center;
   background-size: cover;
   color: #B2A0A3; /* White text for better contrast */
