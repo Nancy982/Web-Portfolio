@@ -1,0 +1,133 @@
+---
+const roles = [
+  {
+    title: 'Data Engineer',
+    company: 'Amentum',
+    location: 'Richland, WA',
+    period: 'Oct 2022 - Present',
+    bullets: [
+      'Led development of a full-stack internal web app (HTML/CSS front end, Python back end) integrating REST APIs and SQL Server to automate reporting and ops workflows, reducing manual processes by 40%+. Source control & CI/CD through Azure DevOps.',
+      'Designed dashboards in Power BI, Dynatrace, VMware Aria, and OEM with KPI reporting to monitor 50+ servers, ensuring peak performance and uptime.',
+      'Analyzed application performance pre- and post-patch with SQL + visualization tools, pinpointing root causes and resolving the 3 biggest causes of crashes.',
+      'Queried ServiceNow ticket data with SQL and built Power BI dashboards, cutting manual reporting by 30%.',
+      'Audited ALM documentation, identifying and correcting 50+ inconsistencies in data definitions and process flows.',
+    ],
+  },
+  {
+    title: 'IT Data Analyst',
+    company: 'Amazon',
+    location: 'Seattle, WA',
+    period: 'Aug 2021 - Oct 2022',
+    bullets: [
+      'Trained an internal ML moderation system by reviewing and labeling 500+ employee email communications, improving policy-violation detection.',
+      'Automated onboarding of 100 email accounts into the AI moderation pipeline using Bash scripting, reducing manual configuration and improving scalability.',
+      'Built interactive Tableau dashboards to track moderator performance, leading to a consistent top-10 ranking for response efficiency.',
+      'Configured 200+ user accounts in PeopleSoft, partnering with HR and management to ensure proper access setup.',
+    ],
+  },
+];
+---
+
+<section id="experience" class="section-soft">
+  <div class="container">
+    <span class="section-label">Experience</span>
+    <h2>Where I've shipped.</h2>
+
+    <div class="timeline">
+      {roles.map((role) => (
+        <article class="role">
+          <div class="role-header">
+            <div>
+              <h3 class="role-title">{role.title}</h3>
+              <p class="role-company">
+                <span>{role.company}</span>
+                <span class="sep" aria-hidden="true">·</span>
+                <span>{role.location}</span>
+              </p>
+            </div>
+            <span class="role-period">{role.period}</span>
+          </div>
+          <ul class="role-bullets">
+            {role.bullets.map((b) => (
+              <li>{b}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .role {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem 1.75rem 1.5rem;
+  }
+
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .role-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .role-company {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .sep {
+    color: var(--border-strong);
+  }
+
+  .role-period {
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .role-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .role-bullets li {
+    position: relative;
+    padding-left: 1.25rem;
+    color: var(--text-muted);
+    font-size: 0.97rem;
+    line-height: 1.6;
+  }
+
+  .role-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--pink);
+  }
+</style>

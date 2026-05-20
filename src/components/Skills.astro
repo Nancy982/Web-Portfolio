@@ -1,0 +1,89 @@
+---
+const skillGroups = [
+  {
+    title: 'Languages & Scripting',
+    items: ['Python', 'SQL (Advanced)', 'PostgreSQL', 'Oracle SQL', 'JavaScript', 'Java', 'C++', 'HTML/CSS', 'Bash'],
+  },
+  {
+    title: 'Data Engineering',
+    items: [
+      'ETL & Data Pipelines',
+      'Data Extraction & Normalization',
+      'Data Quality & Validation',
+      'Stored Procedures',
+      'KPI Reporting',
+      'Dashboard Design',
+    ],
+  },
+  {
+    title: 'Integration & Infrastructure',
+    items: [
+      'REST APIs',
+      'API-based syncs',
+      'SQL Server',
+      'Linux (CLI)',
+      'Git',
+      'Azure DevOps',
+      'CI/CD',
+    ],
+  },
+  {
+    title: 'Visualization',
+    items: ['Power BI', 'SSRS', 'Tableau', 'Dynatrace', 'VMware Aria', 'Excel (Pivot Tables)'],
+  },
+  {
+    title: 'AI & ML Tools',
+    items: ['Claude (Anthropic)', 'ChatGPT (OpenAI)'],
+  },
+];
+---
+
+<section id="skills">
+  <div class="container">
+    <span class="section-label">Skills</span>
+    <h2>The toolbox.</h2>
+    <p class="section-subtitle">
+      A mix of the daily drivers (Python, SQL, Power BI) and the things I reach for
+      when a project needs the full stack.
+    </p>
+
+    <div class="skill-groups">
+      {skillGroups.map((group) => (
+        <div class="skill-group">
+          <h3>{group.title}</h3>
+          <ul class="chip-list">
+            {group.items.map((item) => (
+              <li class="chip">{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skill-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .skill-group h3 {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>

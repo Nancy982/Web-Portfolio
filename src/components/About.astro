@@ -1,0 +1,54 @@
+---
+---
+
+<section id="about" class="section-soft">
+  <div class="container about-grid">
+    <div>
+      <span class="section-label">About</span>
+      <h2>End-to-end data work, with a soft spot for shipping.</h2>
+    </div>
+    <div class="about-body">
+      <p>
+        I'm a Data Engineer at Amentum with four years of experience across IT,
+        automation, and data work. Most of my projects involve SQL, dashboards,
+        internal tools, and finding better ways to handle messy operational processes.
+      </p>
+      <p>
+        I enjoy the side of data engineering that connects everything together.
+        Pulling data from APIs, cleaning it in Python, modeling it in SQL Server
+        or Postgres, and turning it into dashboards people can actually use day to day.
+      </p>
+      <p>
+        A lot of my work also drifts into full-stack development. I like building
+        internal tools that make life easier for the teams using them, not just the
+        engineers maintaining them.
+      </p>
+      <p>
+        Outside of work, I built and launched my own mobile app on the App Store
+        and Google Play. I handled the frontend, backend, database, analytics, and
+        deployment myself. Those kinds of projects are probably my favorite because
+        I like being involved in the whole process from idea to launch.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-body p + p {
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,155 @@
+---
+const projects = [
+  {
+    name: 'Pause',
+    tagline: 'Spoiler-free, timestamp-synced comments for TV shows and movies.',
+    description:
+      'A mobile app that lets viewers pause a show and read what other people had to say at that exact moment, with no spoilers from later in the episode. Designed, built, and shipped end-to-end: UI, API, and database. Published on both the App Store and Google Play.',
+    highlights: ['Front end', 'Back end', 'Database', 'iOS + Android'],
+    links: [
+      { label: 'Website', href: 'https://justhitpause.app' },
+    ],
+    featured: true,
+  },
+  {
+    name: 'Internal Reporting Web App',
+    tagline: 'Automated reporting platform for ops teams at Amentum.',
+    description:
+      'Full-stack internal web app (HTML/CSS front end, Python back end) integrating REST APIs and SQL Server. Reduced manual reporting workflows by 40%+. CI/CD through Azure DevOps.',
+    highlights: ['Python', 'SQL Server', 'REST APIs', 'Azure DevOps'],
+    links: [],
+    featured: false,
+  },
+  {
+    name: 'Server Performance Dashboards',
+    tagline: 'KPI dashboards monitoring 50+ servers in real time.',
+    description:
+      'Designed dashboards in Power BI, Dynatrace, VMware Aria, and OEM. Combined SQL analysis with visualization to pinpoint root causes, resolving the top 3 sources of application crashes.',
+    highlights: ['Power BI', 'Dynatrace', 'SQL', 'KPI reporting'],
+    links: [],
+    featured: false,
+  },
+];
+---
+
+<section id="projects">
+  <div class="container">
+    <span class="section-label">Projects</span>
+    <h2>Selected work.</h2>
+    <p class="section-subtitle">
+      A mix of professional and personal, including a mobile app I shipped from
+      design to app stores.
+    </p>
+
+    <div class="projects-grid">
+      {projects.map((p) => (
+        <article class={`project ${p.featured ? 'project-featured' : ''}`}>
+          {p.featured && <span class="featured-badge">Featured</span>}
+          <h3 class="project-name">{p.name}</h3>
+          <p class="project-tagline">{p.tagline}</p>
+          <p class="project-desc">{p.description}</p>
+          <ul class="chip-list">
+            {p.highlights.map((h) => (
+              <li class={`chip ${p.featured ? 'chip-pink' : ''}`}>{h}</li>
+            ))}
+          </ul>
+          {p.links.length > 0 && (
+            <div class="project-links">
+              {p.links.map((l) => (
+                <a class="project-link" href={l.href} target="_blank" rel="noopener noreferrer">
+                  {l.label} <span aria-hidden="true">→</span>
+                </a>
+              ))}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 800px) {
+    .projects-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .project-featured {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .project {
+    position: relative;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .project-featured {
+    background: linear-gradient(135deg, var(--bg) 0%, var(--pink-tint) 100%);
+    border-color: var(--pink-soft);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--pink-strong);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .project-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+  }
+
+  .project-tagline {
+    color: var(--text);
+    font-weight: 500;
+    margin-top: -0.25rem;
+  }
+
+  .project-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .project-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--pink-strong);
+  }
+
+  .project-link:hover {
+    color: var(--text);
+  }
+</style>

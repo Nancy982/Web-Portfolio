@@ -1,0 +1,124 @@
+---
+const base = import.meta.env.BASE_URL;
+const profileSrc = `${base}/profile.jpg`.replace(/\/+/g, '/');
+const resumeSrc = `${base}/Resume_Nancy_Medina.pdf`.replace(/\/+/g, '/');
+---
+
+<header class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="section-label">Data Engineer</span>
+      <h1>Nancy Medina</h1>
+      <p class="hero-tagline">
+        I build ETL pipelines, internal tools, and dashboards that help teams
+        actually use their data instead of fighting with it. On the side, I build
+        and ship full-stack apps to the App Store and Google Play.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={resumeSrc} target="_blank" rel="noopener noreferrer">
+          View Résumé
+        </a>
+        <a class="btn" href="#projects">See projects</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+      <div class="hero-meta">
+        <a href="https://www.linkedin.com/in/nancy-medina-232100115" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <span class="dot" aria-hidden="true">·</span>
+        <a href="https://github.com/Nancy982" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="dot" aria-hidden="true">·</span>
+        <a href="mailto:medinanancy71@gmail.com">medinanancy71@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="hero-portrait">
+      <div class="portrait-frame">
+        <img src={profileSrc} alt="Portrait of Nancy Medina" />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hero {
+    padding: 6rem 0 4rem;
+    background: linear-gradient(180deg, var(--pink-tint) 0%, var(--bg) 100%);
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin: 1rem 0 2rem;
+    max-width: 540px;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-soft);
+  }
+
+  .hero-meta a {
+    color: var(--text-muted);
+  }
+
+  .hero-meta a:hover {
+    color: var(--pink-strong);
+  }
+
+  .dot {
+    color: var(--border-strong);
+  }
+
+  .hero-portrait {
+    display: flex;
+    justify-content: center;
+  }
+
+  .portrait-frame {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-soft) 100%);
+    box-shadow: var(--shadow-md);
+  }
+
+  .portrait-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bg);
+  }
+
+  @media (max-width: 860px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      text-align: center;
+    }
+    .hero-tagline { margin-left: auto; margin-right: auto; }
+    .hero-actions { justify-content: center; }
+    .hero-meta { justify-content: center; }
+    .portrait-frame { width: 240px; height: 240px; }
+  }
+</style>
