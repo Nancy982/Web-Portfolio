@@ -22,26 +22,16 @@ npm run preview    # preview the production build locally
 
 ## Deploy to GitHub Pages
 
-Two options. Pick one:
-
-### Option A: GitHub Actions (recommended)
-
-Push this folder to the `main` branch of the `Web-Portfolio` repo. The workflow
-at `.github/workflows/deploy.yml` will build and deploy automatically.
-
-One-time setup in the GitHub repo:
-1. Settings → Pages → **Source: GitHub Actions**.
-
-### Option B: manual deploy via `gh-pages`
-
 ```bash
 npm run deploy
 ```
 
-This builds and pushes `./dist` to the `gh-pages` branch.
+This builds the site and pushes `./dist` to the `gh-pages` branch of the repo
+(which is what GitHub Pages serves from). Re-run any time you want to publish
+updates.
 
-If you go this route, set Settings → Pages → **Source: Deploy from a branch →
-gh-pages → / (root)**.
+Repo Pages setting: Settings → Pages → **Source: Deploy from a branch →
+gh-pages → / (root)**. This should already be set.
 
 ## Updating content
 
