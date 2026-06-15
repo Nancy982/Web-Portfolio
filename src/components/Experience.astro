@@ -30,12 +30,13 @@ const roles = [
 
 <section id="experience" class="section-soft">
   <div class="container">
-    <span class="section-label">Experience</span>
-    <h2>Where I've shipped.</h2>
+    <span class="section-label" data-reveal>Experience</span>
+    <h2 data-reveal style="--reveal-delay:0.05s">Where I've <span class="italic shine">shipped</span>.</h2>
 
     <div class="timeline">
-      {roles.map((role) => (
-        <article class="role">
+      {roles.map((role, i) => (
+        <article class="role" data-reveal style={`--reveal-delay:${0.08 * i}s`}>
+          <span class="role-marker" aria-hidden="true"></span>
           <div class="role-header">
             <div>
               <h3 class="role-title">{role.title}</h3>
@@ -60,16 +61,49 @@ const roles = [
 
 <style>
   .timeline {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    background: linear-gradient(var(--gold-soft), var(--rose-soft), transparent);
   }
 
   .role {
-    background: var(--bg);
+    position: relative;
+    background: var(--bg-elevated);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 1.75rem 1.75rem 1.5rem;
+    padding: 1.85rem 1.85rem 1.6rem;
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease),
+      border-color 0.4s var(--ease);
+  }
+
+  .role:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--rose-soft);
+  }
+
+  .role-marker {
+    position: absolute;
+    left: -2rem;
+    top: 1.85rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    box-shadow: 0 0 0 4px var(--bg);
+    transform: translateX(-4px);
   }
 
   .role-header {

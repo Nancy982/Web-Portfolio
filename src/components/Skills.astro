@@ -40,16 +40,16 @@ const skillGroups = [
 
 <section id="skills">
   <div class="container">
-    <span class="section-label">Skills</span>
-    <h2>The toolbox.</h2>
-    <p class="section-subtitle">
-      A mix of the daily drivers (Python, SQL, Power BI) and the things I reach for
+    <span class="section-label" data-reveal>Skills</span>
+    <h2 data-reveal style="--reveal-delay:0.05s">The <span class="italic shine">toolbox</span>.</h2>
+    <p class="section-subtitle" data-reveal style="--reveal-delay:0.1s">
+      The daily drivers like Python, SQL, and Power BI, plus the things I reach for
       when a project needs the full stack.
     </p>
 
     <div class="skill-groups">
-      {skillGroups.map((group) => (
-        <div class="skill-group">
+      {skillGroups.map((group, i) => (
+        <div class="skill-group" data-reveal style={`--reveal-delay:${0.08 * i}s`}>
           <h3>{group.title}</h3>
           <ul class="chip-list">
             {group.items.map((item) => (
@@ -66,7 +66,22 @@ const skillGroups = [
   .skill-groups {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
+  }
+
+  .skill-group {
+    padding: 1.75rem;
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease),
+      border-color 0.4s var(--ease);
+  }
+
+  .skill-group:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--rose-soft);
   }
 
   .skill-group h3 {

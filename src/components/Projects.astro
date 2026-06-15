@@ -34,17 +34,19 @@ const projects = [
 
 <section id="projects">
   <div class="container">
-    <span class="section-label">Projects</span>
-    <h2>Selected work.</h2>
-    <p class="section-subtitle">
-      A mix of professional and personal, including a mobile app I shipped from
-      design to app stores.
+    <span class="section-label" data-reveal>Projects</span>
+    <h2 data-reveal style="--reveal-delay:0.05s">Selected <span class="italic shine">work</span>.</h2>
+    <p class="section-subtitle" data-reveal style="--reveal-delay:0.1s">
+      Professional builds alongside personal ones, including a mobile app I shipped
+      from first sketch to the app stores.
     </p>
 
     <div class="projects-grid">
-      {projects.map((p) => (
-        <article class={`project ${p.featured ? 'project-featured' : ''}`}>
-          {p.featured && <span class="featured-badge">Featured</span>}
+      {projects.map((p, i) => (
+        <article class={`project ${p.featured ? 'project-featured' : ''}`} data-reveal style={`--reveal-delay:${0.08 * i}s`}>
+          {p.featured && (
+            <span class="featured-badge"><span class="featured-dot" aria-hidden="true"></span>Featured</span>
+          )}
           <h3 class="project-name">{p.name}</h3>
           <p class="project-tagline">{p.tagline}</p>
           <p class="project-desc">{p.description}</p>
@@ -86,29 +88,66 @@ const projects = [
 
   .project {
     position: relative;
-    background: var(--bg);
+    background: var(--bg-elevated);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 1.75rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease),
+      border-color 0.45s var(--ease);
   }
 
+  .project::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 80% at 100% 0%, rgba(201, 162, 106, 0.14), transparent 55%);
+    opacity: 0;
+    transition: opacity 0.45s var(--ease);
+    pointer-events: none;
+  }
+
+  .project:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--rose-soft);
+  }
+
+  .project:hover::before { opacity: 1; }
+
+  .project > * { position: relative; z-index: 1; }
+
   .project-featured {
-    background: linear-gradient(135deg, var(--bg) 0%, var(--pink-tint) 100%);
-    border-color: var(--pink-soft);
+    background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--rose-tint) 100%);
+    border-color: var(--rose-soft);
   }
 
   .featured-badge {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    color: var(--pink-strong);
-    font-size: 0.7rem;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    margin-bottom: 0.25rem;
+    border-radius: 100px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--rose-soft);
+    color: var(--rose-strong);
+    font-size: 0.68rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+  }
+
+  .featured-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    box-shadow: 0 0 0 3px var(--rose-tint);
   }
 
   .project-name {
